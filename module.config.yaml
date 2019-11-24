@@ -1,0 +1,78 @@
+# core module, mustn't remove
+- name: highlight.js
+  style-url:
+      - 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/default.min.css'
+
+# core module, mustn't remove
+- name: slide
+  module: './markdown-it-plugin/markdown-it-slide'
+
+# core module, mustn't remove
+- name: webslides
+  static:
+      - 'webslides'
+  style-url:
+      - '/webslides/css/webslides.css'
+  script-url:
+      - '/webslides/js/webslides.js'
+
+# core module, mustn't remove
+- name: slide-meta
+  module: './markdown-it-plugin/markdown-it-slide-meta'
+
+# basic module, not recommend remove
+- name: slide-container
+  module: './markdown-it-plugin/markdown-it-slide-container'
+
+# basic module, not recommend remove
+- name: attrs
+  module: 'markdown-it-attrs'
+
+# optional
+- name: font-awesome
+  module: 'markdown-it-fontawesome'
+  style-url:
+      - 'https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css'
+
+# optional
+- name: animate.css
+  style-url:
+      - 'https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css'
+
+# optional
+- name: webslides-animation
+  static:
+      - 'webslides-animation'
+  script-url:
+      - '/webslides-animation/webslides-animation.js'
+      - '/webslides-animation/index.js'
+
+# optional
+- name: katex
+  module: 'markdown-it-katex'
+  style-url:
+      - 'https://cdn.bootcss.com/KaTeX/0.6.0/katex.min.css'
+
+# optional
+- name: css-doodle
+  type: render
+  module: './markdown-it-plugin/css-doodle'
+  script-url:
+      - 'https://cdn.bootcss.com/css-doodle/0.7.2/css-doodle.min.js'
+
+# optional
+- name: echarts
+  type: render
+  module: './markdown-it-plugin/echarts'
+  script-url:
+      - 'https://cdn.bootcss.com/echarts/4.3.0/echarts.min.js'
+
+# optional
+- name: mermaid
+  type: render
+  module: './markdown-it-plugin/mermaid'
+  static:
+      - 'mermaid'
+  script-url:
+      - 'https://cdn.bootcss.com/mermaid/8.3.1/mermaid.min.js'
+      - '/mermaid/index.js'

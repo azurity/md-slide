@@ -1,0 +1,43 @@
+.slide {
+    background: white;
+}
+
+pre.hljs {
+    padding: 0;
+}
+
+pre.hljs > code {
+    font-family: 'Ubuntu Mono', Consolas, 'Courier New', Courier, monospace;
+}
+
+div.note {
+    display: none;
+}
+
+.animate-step {
+    animation-play-state: paused;
+}
+
+.animate-step.animated {
+    animation-play-state: running;
+}
+
+pre.render {
+    padding: 0;
+    border: 0;
+}
+
+div.css-doodle {
+    display: inline-block;
+}
+
+div.echarts {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+div.mermaid {
+    font-family: 'trebuchet ms', verdana, arial;
+    height: 100%;
+}
