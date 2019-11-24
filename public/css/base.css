@@ -15,11 +15,11 @@ div.note {
 }
 
 .animate-step {
-    animation-play-state: paused;
+    animation-play-state: paused!important;
 }
 
 .animate-step.animated {
-    animation-play-state: running;
+    animation-play-state: running!important;
 }
 
 pre.render {

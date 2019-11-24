@@ -42,10 +42,7 @@ function Slide(md, opt) {
                 }
                 // section
                 let section = new Token('slide_open', 'section', 1)
-                section.attrSet(
-                    'class',
-                    ['align' + attr.align, attr.class].join(' ').trim()
-                )
+                section.attrSet('class', [attr.class].join(' ').trim())
                 state.tokens.push(section)
                 // background span
                 if (background !== null) {
@@ -61,7 +58,10 @@ function Slide(md, opt) {
                 }
                 // wrap
                 let wrap = new Token('slide_wrap_open', 'div', 1)
-                wrap.attrSet('class', ['wrap', attr.wrap].join(' ').trim())
+                wrap.attrSet(
+                    'class',
+                    ['wrap', 'align' + attr.align, attr.wrap].join(' ').trim()
+                )
                 wrap.block = true
                 state.tokens.push(wrap)
                 state.env['slides-index']++

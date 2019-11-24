@@ -28,19 +28,18 @@ class Provider {
 
     async renew() {
         try {
-            this.article = await new Promise((resolve, reject) => {
+            this.raw = await new Promise((resolve, reject) => {
                 fs.readFile(this.path, { encoding: 'utf8' }, (err, data) => {
                     if (err) reject(err)
-                    this.raw = data
-                    parser.renderReset()
-                    let result = parser.render(data)
-                    this.meta = Object.assign(
-                        Object.assign({}, defaultMeta),
-                        parser.meta
-                    )
-                    resolve(result)
+                    resolve(data)
                 })
             })
+            parser.renderReset()
+            this.article = parser.render(this.raw)
+            this.meta = Object.assign(
+                Object.assign({}, defaultMeta),
+                parser.meta
+            )
         } catch (e) {
             console.log(e.toString())
         }
