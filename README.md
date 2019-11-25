@@ -19,6 +19,9 @@ npm install
 ```
 
 finally, start the server
+```bash
+npm start
+```
 
 ## usage
 
