@@ -132,10 +132,10 @@
                         window.open(`/slide/${slideId}/index.md`)
                     }
                     clone.querySelector('#display').onclick = () => {
-                        window.open(`/slide/${slideId}`)
+                        window.open(`/slide/${slideId}/`)
                     }
                     clone.querySelector('#speaker').onclick = () => {
-                        window.open(`/slide/${slideId}?mode=speaker`)
+                        window.open(`/slide/${slideId}/?mode=speaker`)
                     }
                     content.appendChild(clone)
                 })

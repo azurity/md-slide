@@ -83,7 +83,9 @@ class ContentServer {
             return [
                 file,
                 {
-                    router: express.static(path.resolve(this.basePath, file)),
+                    router: express.static(
+                        path.resolve(this.basePath, file, 'public')
+                    ),
                     provider: new MDProvider(indexPath)
                 }
             ]
