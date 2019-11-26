@@ -374,7 +374,7 @@ This root page ([`/`](/)) is a list for all slides on server.
 - and the local static files will be provided at `/slide/:slide-name/*`
 - if you need to use global static source, save it in `public`, and will be provided at `/public/*`
 
-folder mode see so: [folder example](/slide/folder-example)
+folder mode see so: [folder example](/slide/folder-example/)
 
 <slide/>
 

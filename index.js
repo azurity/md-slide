@@ -1,4 +1,7 @@
 const express = require('express')
+const path = require('path')
+
+global.ConfigDir = path.resolve('configs')
 
 const ContentServer = require('./content-server')
 

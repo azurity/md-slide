@@ -4,7 +4,9 @@ const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
 const config = yaml.load(
-    fs.readFileSync('module.config.yaml', { encoding: 'utf8' })
+    fs.readFileSync(path.resolve(global.ConfigDir, 'module.config.yaml'), {
+        encoding: 'utf8'
+    })
 )
 
 let renderFunction = {}

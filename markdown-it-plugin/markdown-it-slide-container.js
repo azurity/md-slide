@@ -1,5 +1,6 @@
 const Container = require('markdown-it-container')
 const fs = require('fs')
+const path = require('path')
 const yaml = require('js-yaml')
 
 const specialTag = Object.assign(
@@ -8,7 +9,12 @@ const specialTag = Object.assign(
         grid: 'div',
         column: 'div'
     },
-    yaml.load(fs.readFileSync('container-alias.yaml'))
+    yaml.load(
+        fs.readFileSync(
+            path.resolve(global.ConfigDir, 'container-alias.yaml'),
+            { encoding: 'utf8' }
+        )
+    )
 )
 
 function SlideContainer(md) {
