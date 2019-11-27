@@ -16,8 +16,8 @@
   options:
     # please use what you want to use, this only an example
     github:
-      key: da48ba48a570dd5f30a3
-      secret: 338a7ce9a323abbc02ccf8eb8af0d92a029da5b7
+      key: your-key-here
+      secret: your-secret-here
       nonce: true
 
 - name: Upload
