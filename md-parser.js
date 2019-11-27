@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
 const config = yaml.load(
-    fs.readFileSync(path.resolve(global.ConfigDir, 'module.config.yaml'), {
+    fs.readFileSync(path.resolve(global.ConfigDir, 'parser.module.yaml'), {
         encoding: 'utf8'
     })
 )

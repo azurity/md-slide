@@ -1,0 +1,21 @@
+# this need to install express-seesion
+- name: session
+  module: './session'
+  options:
+    saveUninitialized: true
+  store:
+    # please use what you want to use, this only an example
+    module: 'connect-sqlite3'
+    options:
+      dir: '.'
+      db: 'session.db'
+
+# this need to install grant-express, and depends on session
+- name: OAuth2
+  module: './oauth2'
+  options:
+    # please use what you want to use, this only an example
+    github:
+      key: your-key-here
+      secret: your-secret-here
+      nonce: true

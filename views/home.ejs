@@ -9,6 +9,10 @@
             href="https://fonts.googleapis.com/css?family=Material+Icons"
             rel="stylesheet"
         />
+        <link
+            href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css"
+            rel="stylesheet"
+        />
         <style>
             body {
                 margin: 0;
@@ -40,6 +44,9 @@
                 padding: 12px;
                 cursor: pointer;
                 user-select: none;
+            }
+            .icon-btn > .fab {
+                font-size: 24px;
             }
             .icon-btn.light:hover {
                 background-color: rgba(0, 0, 0, 0.15);
@@ -87,12 +94,13 @@
                 font-size: 14px;
             }
         </style>
+        <%- scripts.join('\n') %>
     </head>
     <body>
         <header>
             <h1>Slides</h1>
             <div class="space"></div>
-            <div class="icon-btn dark" onclick="refresh()">
+            <div class="icon-btn dark" id="refresh" onclick="refresh()">
                 <i class="material-icons">refresh</i>
             </div>
         </header>

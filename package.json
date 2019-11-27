@@ -10,9 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "chokidar": "^3.3.0",
+    "connect-sqlite3": "^0.9.11",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "grant-express": "^4.6.4",
     "highlight.js": "^9.16.2",
     "js-yaml": "^3.13.1",
     "markdown-it": "^10.0.0",
@@ -21,6 +25,7 @@
     "markdown-it-fontawesome": "^0.3.0",
     "markdown-it-katex": "^2.0.3",
     "md-it-meta": "0.0.2",
+    "node-fetch": "^2.6.0",
     "xml-js": "^1.6.11"
   }
 }
