@@ -3,6 +3,7 @@ const path = require('path')
 
 global.ConfigDir = path.resolve('configs')
 global.renderEnv = { home: { scripts: [] } }
+global.slidePath = path.resolve(__dirname, 'slides')
 
 const ContentServer = require('./content-server')
 const InitServerPlugin = require('./server-plugin/index')

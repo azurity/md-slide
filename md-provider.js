@@ -34,6 +34,7 @@ class Provider {
                     resolve(data)
                 })
             })
+            parser.meta = {}
             parser.renderReset()
             this.article = parser.render(this.raw)
             this.meta = Object.assign(

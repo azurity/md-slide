@@ -8,7 +8,7 @@ class ContentServer {
     constructor(container) {
         this.container = container
         this.pluginFiles = MDProvider.pluginFiles
-        this.basePath = path.resolve(__dirname, 'slides')
+        this.basePath = global.slidePath
         this.init()
         this.createServer()
     }
