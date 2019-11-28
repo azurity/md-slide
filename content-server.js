@@ -24,6 +24,8 @@ class ContentServer {
                         'index.ejs',
                         Object.assign(
                             {
+                                title: this.container.get(req.params.uuid)
+                                    .provider.meta.title,
                                 content: this.container
                                     .get(req.params.uuid)
                                     .provider.get(),
