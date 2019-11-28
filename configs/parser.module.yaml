@@ -96,3 +96,15 @@
   script-url:
       - 'https://cdn.bootcss.com/mermaid/8.3.1/mermaid.min.js'
       - '/mermaid/index.js'
+
+#optional
+- name: timesheet
+  type: render
+  module: './markdown-it-plugin/timesheet'
+  static:
+      - 'timesheet'
+  style-url:
+      - '/timesheet/timesheet.min.css'
+      - '/timesheet/compatible.css'
+  script-url:
+      - '/timesheet/timesheet.min.js'
