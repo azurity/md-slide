@@ -48,6 +48,26 @@
       - '/webslides-animation/index.js'
 
 # optional
+- name: ruby
+  module: 'markdown-it-ruby'
+
+# optional
+- name: mark
+  module: 'markdown-it-mark'
+
+# optional
+- name: ins
+  module: 'markdown-it-ins'
+
+# optional
+- name: sup
+  module: 'markdown-it-sup'
+
+# optional
+- name: sub
+  module: 'markdown-it-sub'
+
+# optional
 - name: katex
   module: 'markdown-it-katex'
   style-url:

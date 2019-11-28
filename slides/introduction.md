@@ -42,6 +42,12 @@ highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-
 - [**markdown-it-fontawesome**](https://www.npmjs.com/package/markdown-it-fontawesome)
 - [**Animate.css**](https://www.npmjs.com/package/animate.css)
 - [**WebSlidesAnimation**](https://www.npmjs.com/package/webslides-animation)
+- [**markdown-it-ruby**](https://www.npmjs.com/package/markdown-it-ruby)
+- [**markdown-it-mark**](https://www.npmjs.com/package/markdown-it-mark)
+- [**markdown-it-ins**](https://www.npmjs.com/package/markdown-it-ins)
+- [**markdown-it-del**](https://www.npmjs.com/package/markdown-it-del)
+- [**markdown-it-sup**](https://www.npmjs.com/package/markdown-it-sup)
+- [**markdown-it-sub**](https://www.npmjs.com/package/markdown-it-sub)
 - [**markdown-it-katex**](https://www.npmjs.com/package/markdown-it-katex)
 - [**css-doodle**](https://css-doodle.com/)
 - [**ECharts**](http://echarts.apache.org/)
@@ -152,7 +158,7 @@ your note here.
 your note here.
 :::
 
-about speaker-mode, see so: [speaker mode](#slide=24)
+about speaker-mode, see so: [speaker mode](#slide=27)
 
 <slide/>
 
@@ -215,6 +221,44 @@ something with step {.animate-step .bounce data-step=1}
 
 see so: [Animate.css](https://www.npmjs.com/package/animate.css){.animate-step .fadeIn data-step=1} & [WebSlidesAnimation](https://www.npmjs.com/package/webslides-animation){.animate-step .fadeIn data-step=1}
 
+
+<slide/>
+
+# ruby syntax
+
+{注|zhù}{音|yīn}{符|fú}{号|hào}
+
+```markdown
+{注|zhù}{音|yīn}{符|fú}{号|hào}
+```
+
+based on markdown-it-ruby, see so: [markdown-it-ruby](https://www.npmjs.com/package/markdown-it-ruby)
+
+<slide/>
+
+# mark syntax
+
+before==this is a mark=={.bg-red}after
+
+```markdown
+before==this is a mark=={.bg-red}after
+```
+
+based on markdown-it-mark, see so: [markdown-it-mark](https://www.npmjs.com/package/markdown-it-mark)
+
+<slide/>
+
+# <ins>, <del>, <sup>, <sub> syntax
+
+something ++insert++, ~~delete~~, some^superscript^, some~subscript~
+
+```markdown
+something ++insert++, ~~delete~~, some^superscript^, some~subscript~
+```
+
+based on markdown-it-ins, markdown-it-del, markdown-it-sup, markdown-it-sub.
+
+see so: [markdown-it-ins](https://www.npmjs.com/package/markdown-it-ins), [markdown-it-del](https://www.npmjs.com/package/markdown-it-del), [markdown-it-sup](https://www.npmjs.com/package/markdown-it-sup), [markdown-it-sub](https://www.npmjs.com/package/markdown-it-sub)
 
 <slide/>
 
