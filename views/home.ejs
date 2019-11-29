@@ -132,13 +132,22 @@
         <div class="content"></div>
         <script>
             let actionList = {
-                raw: () => {
+                raw: (ev) => {
+                    let slideId =
+                        ev.currentTarget.parentElement.parentElement.dataset
+                            .uuid
                     window.open(`/slide/${slideId}/index.md`)
                 },
-                display: () => {
+                display: (ev) => {
+                    let slideId =
+                        ev.currentTarget.parentElement.parentElement.dataset
+                            .uuid
                     window.open(`/slide/${slideId}/`)
                 },
-                speaker: () => {
+                speaker: (ev) => {
+                    let slideId =
+                        ev.currentTarget.parentElement.parentElement.dataset
+                            .uuid
                     window.open(`/slide/${slideId}/?mode=speaker`)
                 }
             }
@@ -156,7 +165,8 @@
                     clone.querySelector('#author').innerText = data.author
                     let slideId = uuid
                     clone.firstElementChild.dataset.uuid = uuid
-                    for(let el of clone.querySelector('.action-btn-list').children){
+                    for (let el of clone.querySelector('.action-btn-list')
+                        .children) {
                         if (!!el.id && !!actionList[el.id]) {
                             el.onclick = actionList[el.id]
                         }
