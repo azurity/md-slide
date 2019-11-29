@@ -97,7 +97,7 @@
       - 'https://cdn.bootcss.com/mermaid/8.3.1/mermaid.min.js'
       - '/mermaid/index.js'
 
-#optional
+# optional
 - name: timesheet
   type: render
   module: './markdown-it-plugin/timesheet'
@@ -108,3 +108,15 @@
       - '/timesheet/compatible.css'
   script-url:
       - '/timesheet/timesheet.min.js'
+
+# optional
+- name: smcat
+  type: render
+  module: './markdown-it-plugin/smcat'
+
+# optional
+- name: roughViz
+  type: render
+  module: './markdown-it-plugin/roughViz'
+  script-url:
+      - 'https://unpkg.com/rough-viz@1.0.5'

@@ -53,6 +53,8 @@ highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-
 - [**ECharts**](http://echarts.apache.org/)
 - [**mermaid**](http://mermaid-js.github.io/mermaid/)
 - [**Timesheet.js**](https://sbstjn.github.io/timesheet.js/)
+- [**state-machine-cat**](https://state-machine-cat.js.org/)
+- [**roughViz**](https://github.com/jwilber/roughViz)
 - and more if you think I should support!
 {.flexblock .metrics}
 
@@ -159,7 +161,7 @@ your note here.
 your note here.
 :::
 
-about speaker-mode, see so: [speaker mode](#slide=28)
+about speaker-mode, see so: [speaker mode](#slide=30)
 
 <slide/>
 
@@ -281,7 +283,7 @@ based on markdown-it-katex & KaTeX, see so: [markdown-it-katex](https://www.npmj
 
 # render DSL syntax
 
-you can use this syntax to render DSL, such as: [css-doodle](https://css-doodle.com/) & [ECharts](http://echarts.apache.org/) & [mermaid](http://mermaid-js.github.io/mermaid/) & [Timesheet.js](https://sbstjn.github.io/timesheet.js/)
+you can use this syntax to render DSL, such as: [css-doodle](https://css-doodle.com/) & [ECharts](http://echarts.apache.org/) & [mermaid](http://mermaid-js.github.io/mermaid/) & [Timesheet.js](https://sbstjn.github.io/timesheet.js/) & [state-machine-cat](https://state-machine-cat.js.org/) & [roughViz](https://github.com/jwilber/roughViz)
 
 use like:
 ````markdown
@@ -432,6 +434,84 @@ sequenceDiagram
         ['07/2005', '09/2005', 'Bad luck again', 'default'],
         ['10/2005', '2008', 'For a long time nothing happened', 'dolor']
     ]
+}
+```
+````
+:::
+::::
+
+<slide/>
+
+**state-machine-cat example**
+
+::::grid
+:::column
+```render(smcat)
+initial,
+doing: entry/ write unit test
+       do/ write code
+       exit/ ...,
+# smcat recognizes initial
+# and final states by name
+# and renders them appropriately
+final;
+
+initial      => "on backlog" : item adds most value;
+"on backlog" => doing        : working on it;
+doing        => testing      : built & unit tested;
+testing      => "on backlog" : test not ok;
+testing      => final        : test ok;
+```
+:::
+:::column
+````markdown
+```render(smcat)
+initial,
+doing: entry/ write unit test
+       do/ write code
+       exit/ ...,
+# smcat recognizes initial
+# and final states by name
+# and renders them appropriately
+final;
+
+initial      => "on backlog" : item adds most value;
+"on backlog" => doing        : working on it;
+doing        => testing      : built & unit tested;
+testing      => "on backlog" : test not ok;
+testing      => final        : test ok;
+```
+````
+:::
+::::
+
+<slide/>
+
+**roughViz example**
+
+::::grid
+:::column
+```render(roughViz)
+{
+    "type": "Donut",
+    "data": {
+      "labels": ["JNCO Jeans", "Sweat Pants", "Jorts"],
+      "values": [20, 10, 2]
+    },
+    "roughness": 2
+}
+```
+:::
+:::column
+````markdown
+```render(roughViz)
+{
+    "type": "Donut",
+    "data": {
+      "labels": ["JNCO Jeans", "Sweat Pants", "Jorts"],
+      "values": [20, 10, 2]
+    }
+    "roughness": 2
 }
 ```
 ````
