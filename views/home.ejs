@@ -93,6 +93,10 @@
                 margin: 8px 0 0 0;
                 font-size: 14px;
             }
+            .item > .action-btn-list {
+                display: flex;
+                align-items: center;
+            }
         </style>
         <%- scripts.join('\n') %>
     </head>
@@ -112,21 +116,36 @@
                         <strong>author:&ensp;</strong><span id="author"></span>
                     </p>
                 </div>
-                <div class="icon-btn light" id="raw">
-                    <i class="material-icons">notes</i>
-                </div>
-                <div class="icon-btn light" id="display">
-                    <i class="material-icons">airplay</i>
-                </div>
-                <div class="icon-btn light" id="speaker">
-                    <i class="material-icons">mic</i>
+                <div class="action-btn-list">
+                    <div class="icon-btn light" id="raw">
+                        <i class="material-icons">notes</i>
+                    </div>
+                    <div class="icon-btn light" id="display">
+                        <i class="material-icons">airplay</i>
+                    </div>
+                    <div class="icon-btn light" id="speaker">
+                        <i class="material-icons">mic</i>
+                    </div>
                 </div>
             </div>
         </template>
         <div class="content"></div>
         <script>
+            let actionList = {
+                raw: () => {
+                    window.open(`/slide/${slideId}/index.md`)
+                },
+                display: () => {
+                    window.open(`/slide/${slideId}/`)
+                },
+                speaker: () => {
+                    window.open(`/slide/${slideId}/?mode=speaker`)
+                }
+            }
             async function refresh() {
-                let res = await fetch('/list')
+                let res = await fetch('/list', {
+                    cache: 'no-cache'
+                })
                 let list = await res.json()
                 let content = document.querySelector('.content')
                 content.innerHTML = ''
@@ -136,14 +155,11 @@
                     clone.querySelector('.title').innerText = data.title
                     clone.querySelector('#author').innerText = data.author
                     let slideId = uuid
-                    clone.querySelector('#raw').onclick = () => {
-                        window.open(`/slide/${slideId}/index.md`)
-                    }
-                    clone.querySelector('#display').onclick = () => {
-                        window.open(`/slide/${slideId}/`)
-                    }
-                    clone.querySelector('#speaker').onclick = () => {
-                        window.open(`/slide/${slideId}/?mode=speaker`)
+                    clone.firstElementChild.dataset.uuid = uuid
+                    for(let el of clone.querySelector('.action-btn-list').children){
+                        if (!!el.id && !!actionList[el.id]) {
+                            el.onclick = actionList[el.id]
+                        }
                     }
                     content.appendChild(clone)
                 })

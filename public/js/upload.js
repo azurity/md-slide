@@ -10,7 +10,7 @@ window.addEventListener(
         upload.className = 'icon-btn dark'
         upload.innerHTML = `<i class="material-icons">cloud_upload</i>`
         upload.onclick = () => {
-            if (!window.oauth2.name) {
+            if (!window.oauth2 || !window.oauth2.name) {
                 alert('please login first')
                 return
             } else {

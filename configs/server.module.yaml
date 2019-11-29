@@ -22,3 +22,6 @@
 
 - name: Upload
   module: './upload'
+
+- name: Remove
+  module: './remove'
