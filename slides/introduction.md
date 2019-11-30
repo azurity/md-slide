@@ -546,6 +546,16 @@ folder mode see so: [folder example](/slide/folder-example/)
 
 <slide/>
 
+# OAuth2, upload, remove function
+
+- you can login by uisng thrid party Oauth2 service.
+- for example, I write the github login code.
+- you can upload slide file(now single file mode only), if your name(provide by OAuth2) is same as the 'author' meta in your slide.
+- for example, my github is `azurity` and the 'author' meta in this slide is `@azurity`.
+- you can remove slide which belong to yourself.(condition is same as upload)
+
+<slide/>
+
 If you need one more function, please create an issue on github.
 
 [:fab-github: issue](https://github.com/azurity/md-slide/issues){.button .bg-black}
