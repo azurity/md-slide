@@ -25,7 +25,7 @@ npm start
 
 ## usage
 
-see [introduction](slides/introduction.md)
+see [introduction](slides/introduction.md) or see our [online demo](https://slide.tp0t.xyz:3001)
 
 ## license
 
