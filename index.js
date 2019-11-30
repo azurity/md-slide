@@ -1,5 +1,7 @@
 const express = require('express')
 const path = require('path')
+const https = require('https')
+const fs = require('fs')
 
 global.ConfigDir = path.resolve('configs')
 global.renderEnv = { home: { scripts: [] } }
@@ -27,4 +29,23 @@ app.get('/', (req, res) => {
     res.render('home.ejs', global.renderEnv['home'])
 })
 
-app.listen(80)
+if (
+    fs.existsSync(path.resolve(__dirname, 'cert', 'privkey.pem')) &&
+    fs.existsSync(path.resolve(__dirname, 'cert', 'cert.pem'))
+) {
+    https
+        .createServer(
+            {
+                key: fs.readFileSync(
+                    path.resolve(__dirname, 'cert', 'privkey.pem')
+                ),
+                cert: fs.readFileSync(
+                    path.resolve(__dirname, 'cert', 'cert.pem')
+                )
+            },
+            app
+        )
+        .listen(443)
+} else {
+    app.listen(80)
+}
