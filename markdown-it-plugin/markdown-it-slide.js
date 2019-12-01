@@ -88,16 +88,14 @@ function Slide(md, opt) {
         closeTag.block = true
         state.tokens = [openTag, ...state.tokens, closeTag]
         if (!!md.meta['highlight-theme']) {
-            let highlightTheme = new Token('highlight-theme', 'link', 1)
+            let highlightTheme = new Token('highlight-theme', 'link', 0)
             // <link rel="stylesheet" type="text/css" media="all" href="${url}">
             highlightTheme.attrSet('rel', 'stylesheet')
             highlightTheme.attrSet('type', 'text/css')
             highlightTheme.attrSet('media', 'all')
             highlightTheme.attrSet('href', md.meta['highlight-theme'])
-            highlightTheme.block = state.tokens = [
-                highlightTheme,
-                ...state.tokens
-            ]
+            highlightTheme.block = true
+            state.tokens = [highlightTheme, ...state.tokens]
         }
     })
     // md.core.ruler.after('inline', 'slides-styles', function(state) {

@@ -161,7 +161,7 @@ your note here.
 your note here.
 :::
 
-about speaker-mode, see so: [speaker mode](#slide=30)
+about speaker-mode, see so: [speaker mode](#slide=31)
 
 <slide/>
 
@@ -174,6 +174,18 @@ a line {#line .bg-trans-light}
 ```
 
 based on markdown-it-attrs, see so: [markdown-it-attrs](https://www.npmjs.com/package/markdown-it-attrs)
+
+<slide/>
+
+# easy font syntax
+
+**test**{.font-TimesNewRoman} **and**{.font-UbuntuMono} **test**{.font-CourierNew}
+
+```markdown
+**test**{.font-TimesNewRoman} **and**{.font-UbuntuMono} **test**{.font-CourierNew}
+```
+
+you can use this by as `font-*` and * will be set to as the font. to alias font name, edit `easy-font-alias.yaml` file.
 
 <slide/>
 

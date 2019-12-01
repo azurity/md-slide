@@ -29,6 +29,13 @@
   module: 'markdown-it-attrs'
 
 # optional
+- name: easy-font
+  module: './markdown-it-plugin/easy-font'
+- name: easy-font-render
+  type: render
+  module: './markdown-it-plugin/easy-font-render'
+
+# optional
 - name: font-awesome
   module: 'markdown-it-fontawesome'
   style-url:
