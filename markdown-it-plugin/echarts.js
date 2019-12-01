@@ -9,7 +9,10 @@ let renderer = (code) => {
         return `
 <div class="echarts"><div style="width:100%;height:100%" id="echarts-${echartsId}"></div></div>
 <script>
-echarts.init(document.getElementById('echarts-${echartsId}')).setOption(${code})
+echarts.init(document.getElementById('echarts-${echartsId}')).setOption(JSON.parse(unescape(atob('${Buffer.from(
+            escape(code),
+            'utf-8'
+        ).toString('base64')}'))))
 </script>
 `
     } catch (e) {

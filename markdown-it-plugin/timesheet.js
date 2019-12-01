@@ -15,7 +15,12 @@ let renderer = (code) => {
         return `
 <div id="timesheet-${timesheetId}"></div>
 <script>
-new Timesheet('timesheet-${timesheetId}', ${data.from}, ${data.to}, ${JSON.stringify(data.list)})
+new Timesheet('timesheet-${timesheetId}', ${data.from}, ${
+            data.to
+        }, JSON.parse(unescape(atob('${Buffer.from(
+            escape(JSON.stringify(data.list)),
+            'utf-8'
+        ).toString('base64')}'))))
 </script>
 `
     } catch (e) {

@@ -12,7 +12,7 @@ function EnumTokenFontClass(tokens, fontUsed) {
         let classes = token.attrGet('class')
         if (classes != null) {
             for (let className of classes.split(' ')) {
-                let m = className.trim().match(/^font-(.+)$/)
+                let m = className.trim().match(/^font-(\p{L}+)$/u)
                 if (!!m) {
                     fontUsed.add(m[1].toString())
                 }

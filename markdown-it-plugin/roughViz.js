@@ -15,7 +15,10 @@ let renderer = (code) => {
         return `
 <div id="roughViz-${roughVizId}"></div>
 <script>
-new roughViz.${data.type}(${JSON.stringify(renderData)})
+new roughViz.${data.type}(JSON.parse(unescape(atob('${Buffer.from(
+            escape(JSON.stringify(renderData)),
+            'utf-8'
+        ).toString('base64')}'))))
 </script>
 `
     } catch (e) {
