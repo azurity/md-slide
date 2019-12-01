@@ -28,21 +28,19 @@ module.exports = function(md) {
     md.core.ruler.push('easy-font', function(state) {
         let fontUsed = new Set()
         EnumTokenFontClass(state.tokens, fontUsed)
-        let content = []
+        let content = {}
         for (let font of fontUsed.values()) {
             let value = font
             if (!!config[font]) {
                 value = config[font]
             }
-            content.push(
-                `.font-${font} { font-family: ${JSON.stringify(value)} }`
-            )
+            content[font] = JSON.stringify(value)
         }
         let token = new Token('fence', 'code', 0)
         token.markup = '```'
         token.info = 'render(easy-font-render)'
         token.block = true
-        token.content = content.join('\n')
+        token.content = yaml.dump(content)
         state.tokens.push(token)
     })
 }
