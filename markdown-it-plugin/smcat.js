@@ -1,3 +1,4 @@
+const entities = require('entities')
 const smcat = require('state-machine-cat')
 
 module.exports = function(code) {
@@ -8,6 +9,6 @@ module.exports = function(code) {
         })
         return `<div class="smcat">${result}</div>`
     } catch (e) {
-        return `<pre>${code}</pre>`
+        return `<pre>${entities.encodeHTML5(code)}</pre>`
     }
 }

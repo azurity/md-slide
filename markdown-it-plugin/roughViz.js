@@ -1,3 +1,5 @@
+const entities = require('entities')
+
 let roughVizId = 0
 
 let renderer = (code) => {
@@ -17,7 +19,7 @@ new roughViz.${data.type}(${JSON.stringify(renderData)})
 </script>
 `
     } catch (e) {
-        return `<pre>${code}</pre>`
+        return `<pre>${entities.encodeHTML5(code)}</pre>`
     }
 }
 

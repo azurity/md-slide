@@ -1,3 +1,4 @@
+const entities = require('entities')
 let timesheetId = 0
 
 let renderer = (code) => {
@@ -18,7 +19,7 @@ new Timesheet('timesheet-${timesheetId}', ${data.from}, ${data.to}, ${JSON.strin
 </script>
 `
     } catch (e) {
-        return `<pre>${code}</pre>`
+        return `<pre>${entities.encodeHTML5(code)}</pre>`
     }
 }
 

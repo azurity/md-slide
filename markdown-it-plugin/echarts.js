@@ -1,3 +1,5 @@
+const entities = require('entities')
+
 let echartsId = 0
 
 let renderer = (code) => {
@@ -11,7 +13,7 @@ echarts.init(document.getElementById('echarts-${echartsId}')).setOption(${code})
 </script>
 `
     } catch (e) {
-        return `<pre>${code}</pre>`
+        return `<pre>${entities.encodeHTML5(code)}</pre>`
     }
 }
 
