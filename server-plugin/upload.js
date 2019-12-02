@@ -10,7 +10,9 @@ function Init(app, config) {
         } else if (
             !!req.body.name &&
             path.extname(req.body.name) &&
-            !fs.existsSync(path.resolve(global.slidePath, req.body.name)) &&
+            !fs.existsSync(
+                path.resolve(global.slidePath, escape(req.body.name))
+            ) &&
             !!req.body.file
         ) {
             try {
@@ -21,7 +23,7 @@ function Init(app, config) {
                     res.sendStatus(403)
                 } else {
                     fs.writeFile(
-                        path.resolve(global.slidePath, req.body.name),
+                        path.resolve(global.slidePath, escape(req.body.name)),
                         req.body.file,
                         (err) => {
                             if (err) {

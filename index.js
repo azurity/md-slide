@@ -28,6 +28,9 @@ app.get('/list', (req, res) => {
 app.get('/', (req, res) => {
     res.render('home.ejs', global.renderEnv['home'])
 })
+app.get('/design/:uuid', (req, res) => {
+    res.render('design.ejs', req.params)
+})
 
 if (
     fs.existsSync(path.resolve(__dirname, 'cert', 'privkey.pem')) &&

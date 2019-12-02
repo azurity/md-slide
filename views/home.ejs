@@ -120,6 +120,9 @@
                     <div class="icon-btn light" id="raw">
                         <i class="material-icons">notes</i>
                     </div>
+                    <div class="icon-btn light" id="design">
+                        <i class="material-icons">straighten</i>
+                    </div>
                     <div class="icon-btn light" id="display">
                         <i class="material-icons">airplay</i>
                     </div>
@@ -137,6 +140,12 @@
                         ev.currentTarget.parentElement.parentElement.dataset
                             .uuid
                     window.open(`/slide/${slideId}/index.md`)
+                },
+                design: (ev) => {
+                    let slideId =
+                        ev.currentTarget.parentElement.parentElement.dataset
+                            .uuid
+                    window.open(`/design/${slideId}/`)
                 },
                 display: (ev) => {
                     let slideId =

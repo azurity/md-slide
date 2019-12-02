@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+                background: rgb(240, 240, 240);
+                overflow: hidden;
+                width: 100vw;
+                height: 100vh;
+            }
+            .container {
+                border-color: gray;
+            }
+            .container * {
+                border-color: inherit;
+            }
+            .main {
+                transform: translate(50vw, 50vh) scale(1);
+                transform-origin: top left;
+                position: relative;
+                grid-area: 2 / 2 / 3 / 3;
+            }
+            .main iframe {
+                border-style: none;
+                border-width: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: -50%;
+                left: -50%;
+            }
+            .ruler-layer {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                pointer-events: none;
+            }
+            .ruler {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+            .ruler label {
+                pointer-events: all;
+                margin: 16px;
+            }
+            .ruler input {
+                padding: 4px;
+                font-size: 16px;
+                width: 160px;
+                height: 32px;
+                border-style: none;
+                border-radius: 2px;
+                box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+                    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+                    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+            }
+            .w-ruler {
+                flex-direction: row;
+            }
+            .h-ruler {
+                flex-direction: column;
+            }
+            .w-ruler .line {
+                border-left: 1px dashed;
+                border-color: inherit;
+                height: 100%;
+            }
+            .h-ruler .line {
+                border-top: 1px dashed;
+                border-color: inherit;
+                width: 100%;
+            }
+            .full .ruler-layer {
+                display: none;
+            }
+
+            .icon-list {
+                position: fixed;
+                right: 16px;
+                bottom: 16px;
+            }
+            .btn {
+                background: cyan;
+                border-radius: 50%;
+            }
+            .icon-btn {
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                padding: 12px;
+                cursor: pointer;
+                user-select: none;
+            }
+            .icon-btn.light:hover {
+                background-color: rgba(0, 0, 0, 0.15);
+            }
+            .icon-btn.dark:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="main">
+                <iframe
+                    src="https://slide.tp0t.xyz:3001/slide/<%- uuid %>/"
+                ></iframe>
+            </div>
+            <div class="ruler-layer w-ruler">
+                <div class="ruler w-ruler">
+                    <div class="line"></div>
+                    <label
+                        >Width<br /><input
+                            type="number"
+                            placeholder="Width"
+                            id="w-input"
+                            value="1024"
+                    /></label>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="ruler-layer h-ruler">
+                <div class="ruler h-ruler">
+                    <div class="line"></div>
+                    <label
+                        >Height<br /><input
+                            type="number"
+                            placeholder="Height"
+                            id="h-input"
+                            value="768"
+                    /></label>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="icon-list">
+                <div class="btn" onclick="toggle()">
+                    <div class="icon-btn light">
+                        <i class="material-icons" id="toggle-icon"
+                            >fullscreen</i
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let width = 1024
+            let height = 768
+            let full = false
+            function resize() {
+                let k = full ? 1 : 0.6
+                let sw = (window.innerWidth / width) * k
+                let sh = (window.innerHeight / height) * k
+                let smin = Math.min(sw, sh)
+                document.querySelector('.main').style.width = `${width}px`
+                document.querySelector('.main').style.height = `${height}px`
+                document.querySelector(
+                    '.main'
+                ).style.transform = `translate(50vw, 50vh) scale(${smin})`
+                document.querySelector(
+                    '.ruler.w-ruler'
+                ).style.width = `${width * smin}px`
+                document.querySelector(
+                    '.ruler.h-ruler'
+                ).style.height = `${height * smin}px`
+            }
+            function toggle() {
+                full = !full
+                document.body.className = full ? 'full' : 'design'
+                document.getElementById('toggle-icon').innerText = full
+                    ? 'fullscreen_exit'
+                    : 'fullscreen'
+                resize()
+            }
+            function wSet(e) {
+                width = Math.min(9999, Math.max(320, e.target.value))
+                e.target.value = width
+                resize()
+            }
+            function hSet(e) {
+                height = Math.min(9999, Math.max(240, e.target.value))
+                e.target.value = height
+                resize()
+            }
+            document.getElementById('w-input').addEventListener('change', wSet)
+            document.getElementById('h-input').addEventListener('change', hSet)
+            window.addEventListener('resize', resize)
+            resize()
+        </script>
+    </body>
+</html>
