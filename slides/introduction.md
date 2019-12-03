@@ -105,18 +105,21 @@ you will get:
 
 ```markdown
 <slide/>
-::{any background attributes here}
+::image(image url)
+```
+or
+```markdown
+<slide/>
+::video(video url)
 ```
 
-attributes syntax sere so: [attributes syntax](#slide=15)
-
 <slide/>
-::{style=background-image:url('https://source.unsplash.com/UJbHNoVPZW0/')}
+::image(https://source.unsplash.com/UJbHNoVPZW0/)
 
 **an example:**
 ```markdown
 <slide/>
-::{style=background-image:url('https://source.unsplash.com/UJbHNoVPZW0/')}
+::image(https://source.unsplash.com/UJbHNoVPZW0/)
 ```
 
 <slide/>
@@ -131,11 +134,13 @@ attributes syntax sere so: [attributes syntax](#slide=15)
 :::
 
 ```markdown
-:::div{style=width:100px;height:100px .bg-red}
+:::div{style=width:100px;height:100px .bg-red other-attributes}
 :::
 ```
 
 based on markdown-it-container, see so: [markdown-it-container](https://www.npmjs.com/package/markdown-it-container)
+
+attributes syntax sere so: [attributes syntax](#slide=15)
 
 <slide/>
 
@@ -218,7 +223,7 @@ This is based on markdown-it-fontawesome & fonr-awesome v5 :fab-font-awesome:
 see so: [markdown-it-fontawesome](https://www.npmjs.com/package/markdown-it-fontawesome) & [Font Awesome](https://fontawesome.com/)
 
 <slide/>
-::{data-step-count=1}
+{data-step-count=1}
 
 # animation syntax
 
@@ -227,7 +232,7 @@ combine Animate.css & WebSlidesAnimation
 :fas-info:{.bounce .infinite .animated}
 
 ```markdown
-::{data-step-count=...}
+{data-step-count=...}
 
 something {.bounce .infinite .animated}
 

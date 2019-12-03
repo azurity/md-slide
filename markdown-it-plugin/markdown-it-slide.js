@@ -27,34 +27,74 @@ function Slide(md, opt) {
                     state.eMarks[state.line]
                 )
                 let background = null
-                if (line.match(/^::(\W|$)/)) {
-                    background = line.substr(2)
-                    state.line++
+                let m = line.match(/^::(image|video)\((.+)\)\s*$/)
+                if (!!m) {
+                    try {
+                        new URL(m[2])
+                        background = m
+                        state.line++
+                    } catch (e) {}
                 }
                 // close tag
-                if (!!state.env['slides-index']) {
-                    state.tokens.push(new Token('slide_wrap_close', 'div', -1))
-                    let token = new Token('slide_close', 'section', -1)
-                    token.block = true
-                    state.tokens.push(token)
-                } else {
-                    state.env['slides-index'] = 0
+                if (!!state.env['slides-close']) {
+                    for (let token of state.env['slides-close']) {
+                        state.tokens.push(token)
+                    }
                 }
+                let closeToken = []
                 // section
                 let section = new Token('slide_open', 'section', 1)
                 section.attrSet('class', [attr.class].join(' ').trim())
                 state.tokens.push(section)
+                let token = new Token('slide_close', 'section', -1)
+                token.block = true
+                closeToken = [token]
                 // background span
                 if (background !== null) {
-                    let span = new Token('background_open', 'span', 1)
-                    span.attrSet('class', 'background')
-                    state.tokens.push(span)
-                    let inline = new Token('inline', '', 0)
-                    inline.children = []
-                    inline.content = background
-                    inline.map = [state.line - 1, state.line]
-                    state.tokens.push(inline)
-                    state.tokens.push(new Token('background_close', 'span', -1))
+                    switch (background[1].toString()) {
+                        case 'image':
+                            {
+                                let back = new Token(
+                                    'background_open',
+                                    'div',
+                                    1
+                                )
+                                back.attrSet('class', 'background slide')
+                                back.attrSet(
+                                    'style',
+                                    `background-image:url(${background[2]});`
+                                )
+                                state.tokens.push(back)
+                                closeToken = [
+                                    new Token('background_close', 'div', -1),
+                                    ...closeToken
+                                ]
+                            }
+                            break
+                        case 'video':
+                            {
+                                let back = new Token(
+                                    'background_open',
+                                    'video',
+                                    1
+                                )
+                                back.attrSet('class', 'background-video')
+                                back.attrSet('autoplay', true)
+                                back.attrSet('muted', true)
+                                back.attrSet('loop', true)
+                                state.tokens.push(back)
+                                let source = new Token('source', 'source', 0)
+                                source.attrSet('type', 'video/*')
+                                source.attrSet('src', background[2].toString())
+                                state.tokens.push(source)
+                                state.tokens.push(
+                                    new Token('background_close', 'video', -1)
+                                )
+                            }
+                            break
+                        default:
+                            break
+                    }
                 }
                 // wrap
                 let wrap = new Token('slide_wrap_open', 'div', 1)
@@ -64,7 +104,10 @@ function Slide(md, opt) {
                 )
                 wrap.block = true
                 state.tokens.push(wrap)
-                state.env['slides-index']++
+                state.env['slides-close'] = [
+                    new Token('slide_wrap_close', 'div', -1),
+                    ...closeToken
+                ]
                 return true
             } else {
                 return false
@@ -74,12 +117,11 @@ function Slide(md, opt) {
         }
     })
     md.core.ruler.push('slides-article', function(state) {
-        if (!!state.env['slides-index']) {
-            state.tokens.push(new Token('slide_wrap_close', 'div', -1))
-            let token = new Token('slide_close', 'section', -1)
-            token.block = true
-            state.tokens.push(token)
-            state.env['slides'] = false
+        if (!!state.env['slides-close']) {
+            for (let token of state.env['slides-close']) {
+                state.tokens.push(token)
+            }
+            state.env['slides-close'] = []
         }
         let openTag = new Token('article_open', 'article', 1)
         openTag.attrSet('id', 'webslides')

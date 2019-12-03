@@ -14,12 +14,16 @@ div.note {
     display: none;
 }
 
+p[data-step-count] {
+    margin: 0;
+}
+
 .animate-step {
-    animation-play-state: paused!important;
+    animation-play-state: paused !important;
 }
 
 .animate-step.animated {
-    animation-play-state: running!important;
+    animation-play-state: running !important;
 }
 
 pre.render {
