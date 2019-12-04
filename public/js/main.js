@@ -19,9 +19,17 @@ function init() {
             window.open(`/slide/${uuid}/#slide=${window.ws.currentSlideI_ + 1}`)
         }
     } else {
+        window.slideListeners = {
+            slide: (args) => {
+                if (args[0] == uuid) {
+                    window.ws.goToSlide(args[1])
+                }
+            }
+        }
         window.slideWorker.port.onmessage = (e) => {
-            if (e.data[0] == uuid) {
-                window.ws.goToSlide(e.data[1])
+            console.log(e.data)
+            if (typeof window.slideListeners[e.data[0]] == 'function') {
+                window.slideListeners[e.data[0]](e.data.slice(1))
             }
         }
     }

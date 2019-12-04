@@ -7,10 +7,11 @@ onconnect = function(e) {
             case 'close':
                 portList = portList.filter((val) => val != port)
                 break
-            case 'slide':
+            default:
                 portList.map((p) => {
-                    p.postMessage(ev.data.slice(1))
+                    p.postMessage(ev.data)
                 })
+                break
         }
     }
 }
