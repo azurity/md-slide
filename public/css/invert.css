@@ -1,0 +1,33 @@
+* {
+    mix-blend-mode: normal;
+}
+
+.invert .wrap {
+    background: inherit;
+}
+
+.invert .wrap > h1,
+.invert .wrap > h2,
+.invert .wrap > h3,
+.invert .wrap > h4,
+.invert .wrap > h5,
+.invert .wrap > h6,
+.invert .wrap > p {
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.no-invert .wrap {
+    background: unset;
+}
+
+.no-invert .wrap > h1,
+.no-invert .wrap > h2,
+.no-invert .wrap > h3,
+.no-invert .wrap > h4,
+.no-invert .wrap > h5,
+.no-invert .wrap > h6,
+.no-invert .wrap > p {
+    color: unset;
+    mix-blend-mode: normal;
+}

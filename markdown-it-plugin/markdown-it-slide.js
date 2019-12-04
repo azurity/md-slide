@@ -49,7 +49,19 @@ function Slide(md, opt) {
                 let token = new Token('slide_close', 'section', -1)
                 token.block = true
                 closeToken = [token]
-                // background span
+                // wrap
+                let wrap = new Token('slide_wrap_open', 'div', 1)
+                wrap.attrSet(
+                    'class',
+                    ['wrap', 'align' + attr.align, attr.wrap].join(' ').trim()
+                )
+                wrap.block = true
+                state.tokens.push(wrap)
+                state.env['slides-close'] = [
+                    new Token('slide_wrap_close', 'div', -1),
+                    ...closeToken
+                ]
+                // background
                 if (background !== null) {
                     switch (background[1].toString()) {
                         case 'image':
@@ -59,16 +71,15 @@ function Slide(md, opt) {
                                     'div',
                                     1
                                 )
-                                back.attrSet('class', 'background slide')
+                                back.attrSet('class', 'background')
                                 back.attrSet(
                                     'style',
                                     `background-image:url(${background[2]});`
                                 )
                                 state.tokens.push(back)
-                                closeToken = [
-                                    new Token('background_close', 'div', -1),
-                                    ...closeToken
-                                ]
+                                state.tokens.push(
+                                    new Token('background_close', 'div', -1)
+                                )
                             }
                             break
                         case 'video':
@@ -84,7 +95,11 @@ function Slide(md, opt) {
                                 back.attrSet('loop', true)
                                 state.tokens.push(back)
                                 let source = new Token('source', 'source', 0)
-                                source.attrSet('type', 'video/*')
+                                let type = background[2].toString().split('.')
+                                source.attrSet(
+                                    'type',
+                                    `video/${type[type.length - 1]}`
+                                )
                                 source.attrSet('src', background[2].toString())
                                 state.tokens.push(source)
                                 state.tokens.push(
@@ -96,18 +111,6 @@ function Slide(md, opt) {
                             break
                     }
                 }
-                // wrap
-                let wrap = new Token('slide_wrap_open', 'div', 1)
-                wrap.attrSet(
-                    'class',
-                    ['wrap', 'align' + attr.align, attr.wrap].join(' ').trim()
-                )
-                wrap.block = true
-                state.tokens.push(wrap)
-                state.env['slides-close'] = [
-                    new Token('slide_wrap_close', 'div', -1),
-                    ...closeToken
-                ]
                 return true
             } else {
                 return false
@@ -117,6 +120,13 @@ function Slide(md, opt) {
         }
     })
     md.core.ruler.push('slides-article', function(state) {
+        let styleConfig = { 'auto-invert': true }
+        if (state.md.meta) {
+            styleConfig = Object.assign(
+                styleConfig,
+                state.md.meta['style-config']
+            )
+        }
         if (!!state.env['slides-close']) {
             for (let token of state.env['slides-close']) {
                 state.tokens.push(token)
@@ -125,6 +135,9 @@ function Slide(md, opt) {
         }
         let openTag = new Token('article_open', 'article', 1)
         openTag.attrSet('id', 'webslides')
+        if (styleConfig['auto-invert']) {
+            openTag.attrSet('class', 'invert')
+        }
         openTag.block = true
         let closeTag = new Token('article_close', 'article', -1)
         closeTag.block = true

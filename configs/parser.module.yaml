@@ -29,6 +29,11 @@
   module: 'markdown-it-attrs'
 
 # optional
+- name: colors.css
+  style-url:
+      - 'https://cdn.bootcss.com/colors/3.0.0/css/colors.min.css'
+
+# optional
 - name: easy-font
   module: './markdown-it-plugin/easy-font'
 - name: easy-font-render

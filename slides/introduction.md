@@ -3,6 +3,8 @@ title: MD-slide introduction
 author: '@azurity'
 config:
     loop: false
+style-config:
+    auto-invert: false
 highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-dark.min.css'
 ---
 <slide/>
@@ -40,6 +42,7 @@ highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-
 - [**markdown-it-attrs**](https://www.npmjs.com/package/markdown-it-attrs)
 - [**markdown-it-container**](https://www.npmjs.com/package/markdown-it-container)
 - [**markdown-it-fontawesome**](https://www.npmjs.com/package/markdown-it-fontawesome)
+- [**colors.css**](http://clrs.cc/)
 - [**Animate.css**](https://www.npmjs.com/package/animate.css)
 - [**WebSlidesAnimation**](https://www.npmjs.com/package/webslides-animation)
 - [**markdown-it-ruby**](https://www.npmjs.com/package/markdown-it-ruby)
@@ -55,8 +58,9 @@ highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-
 - [**Timesheet.js**](https://sbstjn.github.io/timesheet.js/)
 - [**state-machine-cat**](https://state-machine-cat.js.org/)
 - [**roughViz**](https://github.com/jwilber/roughViz)
-- and more if you think I should support!
 {.flexblock .metrics}
+
+**and more if you think I should support!**
 
 <slide/>
 
@@ -92,11 +96,11 @@ you will get:
 </section>
 ```
 
-<slide class="bg-blue" align="left" wrap="size-40 frame"/>
+<slide class="bg-blue invert" align="left" wrap="size-40 frame"/>
 
 **an example:**
 ```markdown
-<slide class="bg-blue" align="left" wrap="size-40 frame"/>
+<slide class="bg-blue invert" align="left" wrap="size-40 frame"/>
 ```
 
 <slide/>

@@ -2,6 +2,19 @@
     background: white;
 }
 
+* {
+    position: relative;
+}
+
+.background,
+.background-video {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
 pre.hljs {
     padding: 0;
 }
