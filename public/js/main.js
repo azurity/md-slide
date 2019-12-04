@@ -27,7 +27,6 @@ function init() {
             }
         }
         window.slideWorker.port.onmessage = (e) => {
-            console.log(e.data)
             if (typeof window.slideListeners[e.data[0]] == 'function') {
                 window.slideListeners[e.data[0]](e.data.slice(1))
             }
