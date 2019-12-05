@@ -6,28 +6,52 @@
     background: inherit;
 }
 
-.invert .wrap > h1,
-.invert .wrap > h2,
-.invert .wrap > h3,
-.invert .wrap > h4,
-.invert .wrap > h5,
-.invert .wrap > h6,
-.invert .wrap > p {
+.invert h1,
+.invert h2,
+.invert h3,
+.invert h4,
+.invert h5,
+.invert h6,
+.invert p {
     color: white;
     mix-blend-mode: difference;
+}
+
+.invert mark,
+.invert ins,
+.invert .button.ghost {
+    color: black;
+    filter: invert(1);
+}
+
+.invert .button {
+    color: white;
+    filter: invert(1);
 }
 
 .no-invert .wrap {
     background: unset;
 }
 
-.no-invert .wrap > h1,
-.no-invert .wrap > h2,
-.no-invert .wrap > h3,
-.no-invert .wrap > h4,
-.no-invert .wrap > h5,
-.no-invert .wrap > h6,
-.no-invert .wrap > p {
+.no-invert h1,
+.no-invert h2,
+.no-invert h3,
+.no-invert h4,
+.no-invert h5,
+.no-invert h6,
+.no-invert p {
     color: unset;
     mix-blend-mode: normal;
+}
+
+.no-invert mark,
+.no-invert ins,
+.no-invert .button.ghost {
+    color: black;
+    filter: none;
+}
+
+.no-invert .button {
+    color: white;
+    filter: none;
 }
