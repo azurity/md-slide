@@ -2,6 +2,10 @@
     background: white;
 }
 
+#webslides {
+    overflow: hidden !important;
+}
+
 * {
     position: relative;
 }
