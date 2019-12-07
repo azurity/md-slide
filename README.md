@@ -23,9 +23,13 @@ finally, start the server
 npm start
 ```
 
-## usage
+## function introduction
 
 see [introduction](slides/introduction.md) or see our [online demo](https://slide.tp0t.xyz:3001)
+
+## usage
+
+[中文教程](https://github.com/azurity/md-slide/wiki/Tutorial)
 
 ## license
 
