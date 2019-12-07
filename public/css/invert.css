@@ -29,6 +29,10 @@
     filter: invert(1);
 }
 
+.invert img {
+    filter: invert(1);
+}
+
 .no-invert .wrap {
     background: unset;
 }
@@ -53,5 +57,9 @@
 
 .no-invert .button {
     color: white;
+    filter: none;
+}
+
+.no-invert img {
     filter: none;
 }
