@@ -10,6 +10,11 @@
     position: relative;
 }
 
+ul {
+    display: inline-block;
+    text-align: left;
+}
+
 .background,
 .background-video {
     position: fixed !important;

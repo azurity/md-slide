@@ -12,6 +12,7 @@
 .invert h4,
 .invert h5,
 .invert h6,
+.invert li,
 .invert p {
     color: white;
     mix-blend-mode: difference;
@@ -43,6 +44,7 @@
 .no-invert h4,
 .no-invert h5,
 .no-invert h6,
+.no-invert li,
 .no-invert p {
     color: unset;
     mix-blend-mode: normal;
