@@ -28,6 +28,10 @@
 - name: attrs
   module: 'markdown-it-attrs'
 
+# basic module, not recommend remove
+- name: span
+  module: 'markdown-it-bracketed-spans'
+
 # optional
 - name: colors.css
   style-url:
