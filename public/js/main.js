@@ -10,12 +10,12 @@ function init() {
             window.slideWorker.port.postMessage([
                 'slide',
                 uuid,
-                event.detail.currentSlide0
+                event.detail.currentSlide0,
             ])
         })
         let displayBtn = document.querySelector('#display-btn')
         displayBtn.style.display = 'block'
-        displayBtn.onclick = function() {
+        displayBtn.onclick = function () {
             window.open(`/slide/${uuid}/#slide=${window.ws.currentSlideI_ + 1}`)
         }
     } else {
@@ -24,7 +24,19 @@ function init() {
                 if (args[0] == uuid) {
                     window.ws.goToSlide(args[1])
                 }
-            }
+            },
+            play: (id) => {
+                let player = document.getElementById(id)
+                if (player?.play) {
+                    player.play()
+                }
+            },
+            pause: (id) => {
+                let player = document.getElementById(id)
+                if (player?.pause) {
+                    player.pause()
+                }
+            },
         }
         window.slideWorker.port.onmessage = (e) => {
             if (typeof window.slideListeners[e.data[0]] == 'function') {

@@ -67,3 +67,7 @@ div.mermaid {
     font-family: 'trebuchet ms', verdana, arial;
     height: 100%;
 }
+
+div.asciinema {
+    display: inline-block;
+}

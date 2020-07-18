@@ -136,3 +136,15 @@
   module: './markdown-it-plugin/roughViz'
   script-url:
       - 'https://unpkg.com/rough-viz@1.0.5'
+
+# optional
+- name: asciinema
+  type: render
+  module: './markdown-it-plugin/asciinema-player'
+  static:
+      - 'asciinema-player'
+  style-url:
+      - 'https://cdn.bootcdn.net/ajax/libs/asciinema-player/2.4.1/asciinema-player.min.css'
+  script-url:
+      - 'https://cdn.bootcdn.net/ajax/libs/asciinema-player/2.4.1/asciinema-player.min.js'
+      - '/asciinema-player/loader.js'

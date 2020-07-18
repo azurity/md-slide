@@ -18,7 +18,7 @@ let it = It({
             if (!!renderMatch && !!renderFunction[renderMatch[1]]) {
                 return `<pre class="render"></pre>${renderFunction[
                     renderMatch[1]
-                ](str)}<pre class="render"></pre>`
+                ](str, it.meta)}<pre class="render"></pre>`
             }
             if (hljs.getLanguage(lang)) {
                 try {
