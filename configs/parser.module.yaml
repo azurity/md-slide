@@ -1,7 +1,7 @@
 # core module, mustn't remove
 - name: highlight.js
   style-url:
-      - 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/default.min.css'
+      - 'https://cdn.jsdelivr.net/npm/highlight.js@10/styles/default.min.css'
 
 # core module, mustn't remove
 - name: slide
@@ -35,7 +35,7 @@
 # optional
 - name: colors.css
   style-url:
-      - 'https://cdn.bootcss.com/colors/3.0.0/css/colors.min.css'
+      - 'https://cdn.jsdelivr.net/npm/colors.css@3/css/colors.min.css'
 
 # optional
 - name: easy-font
@@ -48,12 +48,12 @@
 - name: font-awesome
   module: 'markdown-it-fontawesome'
   style-url:
-      - 'https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css'
+      - 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css'
 
 # optional
 - name: animate.css
   style-url:
-      - 'https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css'
+      - 'https://cdn.jsdelivr.net/npm/animate.css@4/animate.compat.css'
 
 # optional
 - name: webslides-animation
@@ -87,21 +87,21 @@
 - name: katex
   module: 'markdown-it-katex'
   style-url:
-      - 'https://cdn.bootcss.com/KaTeX/0.6.0/katex.min.css'
+      - 'https://cdn.jsdelivr.net/npm/katex@0.6/dist/katex.min.css'
 
 # optional
 - name: css-doodle
   type: render
   module: './markdown-it-plugin/css-doodle'
   script-url:
-      - 'https://cdn.bootcss.com/css-doodle/0.7.2/css-doodle.min.js'
+      - 'https://cdn.jsdelivr.net/npm/css-doodle@0.8/css-doodle.min.js'
 
 # optional
 - name: echarts
   type: render
   module: './markdown-it-plugin/echarts'
   script-url:
-      - 'https://cdn.bootcss.com/echarts/4.3.0/echarts.min.js'
+      - 'https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js'
 
 # optional
 - name: mermaid
@@ -110,7 +110,7 @@
   static:
       - 'mermaid'
   script-url:
-      - 'https://cdn.bootcss.com/mermaid/8.3.1/mermaid.min.js'
+      - 'https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js'
       - '/mermaid/index.js'
 
 # optional
@@ -135,7 +135,7 @@
   type: render
   module: './markdown-it-plugin/roughViz'
   script-url:
-      - 'https://unpkg.com/rough-viz@1.0.5'
+      - 'https://cdn.jsdelivr.net/npm/@azurity/rough-viz@1/dist/roughviz.min.js'
 
 # optional
 - name: asciinema
@@ -144,7 +144,7 @@
   static:
       - 'asciinema-player'
   style-url:
-      - 'https://cdn.bootcdn.net/ajax/libs/asciinema-player/2.4.1/asciinema-player.min.css'
+      - 'https://cdn.jsdelivr.net/npm/asciinema-player@2/resources/public/css/asciinema-player.min.css'
   script-url:
-      - 'https://cdn.bootcdn.net/ajax/libs/asciinema-player/2.4.1/asciinema-player.min.js'
+      - 'https://cdn.jsdelivr.net/npm/asciinema-player@2/resources/public/js/asciinema-player.min.js'
       - '/asciinema-player/loader.js'

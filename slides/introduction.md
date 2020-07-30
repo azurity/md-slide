@@ -5,7 +5,7 @@ config:
     loop: false
 style-config:
     auto-invert: false
-highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-dark.min.css'
+highlight-theme: 'https://cdn.jsdelivr.net/npm/highlight.js@10/styles/solarized-dark.min.css'
 ---
 <slide/>
 

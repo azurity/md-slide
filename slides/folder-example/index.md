@@ -3,7 +3,7 @@ title: folder example
 author: '@azurity'
 config:
     loop: false
-highlight-theme: 'https://cdn.bootcss.com/highlight.js/9.15.10/styles/solarized-dark.min.css'
+highlight-theme: 'https://cdn.jsdelivr.net/npm/highlight.js@10/styles/solarized-dark.min.css'
 ---
 <slide/>
 
