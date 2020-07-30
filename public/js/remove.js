@@ -25,7 +25,7 @@ window.addEventListener(
                 if (res.status != 200) {
                     alert('remove failed or format failed')
                 } else {
-                    refresh()
+                    setTimeout(refresh, 500) // wait file delete & already trigger chokidar
                 }
             } catch (e) {}
         }
