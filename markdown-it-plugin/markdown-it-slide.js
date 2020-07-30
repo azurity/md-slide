@@ -58,6 +58,8 @@ function Slide(md, opt) {
                 wrap.block = true
                 state.tokens.push(wrap)
                 state.env['slides-close'] = [
+                    new Token('slide_blank_open', 'div', 1),
+                    new Token('slide_blank_close', 'div', -1),
                     new Token('slide_wrap_close', 'div', -1),
                     ...closeToken
                 ]
