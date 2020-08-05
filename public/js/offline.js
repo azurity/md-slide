@@ -10,13 +10,15 @@ window.addEventListener(
                         }
                         return res.json()
                     }),
-                    fetch(offlineResourceURL.launcher[os]).then((res) => {
-                        // launcher
-                        if (!res.ok) {
-                            throw res.statusText
-                        }
-                        return res.blob()
-                    }),
+                    fetch(offlineResourceURL.launcher[os])
+                        .then((res) => {
+                            // launcher
+                            if (!res.ok) {
+                                throw res.statusText
+                            }
+                            return res.blob()
+                        })
+                        .then(JSZip.loadAsync),
                     fetch(offlineResourceURL.resource)
                         .then((res) => {
                             // pre-zip
@@ -30,7 +32,7 @@ window.addEventListener(
                     throw err
                 })
                 let info = data[0]
-                let launcher = data[1]
+                let launcher = await data[1].file('launcher').async('blob')
                 let zip = data[2]
                 zip.file(
                     `slide/${uuid}/index.md`,

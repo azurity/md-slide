@@ -30,6 +30,6 @@
   module: './offline'
   options:
     launcher:
-      windows: '/public/launcher-windows.exe'
-      linux: '/public/launcher-linux'
+      windows: '/public/launcher-windows.zip'
+      linux: '/public/launcher-linux.zip'
     resource: '/public/resource.zip'
