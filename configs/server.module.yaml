@@ -25,3 +25,11 @@
 
 - name: Remove
   module: './remove'
+
+- name: Offline
+  module: './offline'
+  options:
+    launcher:
+      windows: '/public/launcher-windows.exe'
+      linux: '/public/launcher-linux'
+    resource: '/public/resource.zip'

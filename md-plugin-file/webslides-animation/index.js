@@ -1,7 +1,7 @@
 window.addEventListener('load', function() {
     if (window.ws != null) {
         let wsan = new WebSlidesAnimation(window.ws)
-        if (query.mode == 'speaker') {
+        if (query.get('mode') == 'speaker') {
             window.ws.el.addEventListener('ws:slide-go-next-step', () => {
                 window.slideWorker.port.postMessage([
                     'slide-go-next-step',

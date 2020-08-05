@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <link href="/public/css/Roboto.css" rel="stylesheet">
+    <link href="/public/css/UbuntuMono.css" rel="stylesheet">
+    <link href="/public/css/MaterialIcons.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/public/css/base.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/public/css/invert.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/public/css/speaker.css">
+    <%- style %>
+    <%- script %>
+    <style>
+        .display-btn {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+                    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+                    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            user-select: none;
+            color: white;
+            background-color: #00bcd4;
+            display: none;
+        }
+        .display-btn-inner {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            padding: 12px;
+        }
+        .display-btn-inner:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <%- content %>
+    <div class="display-btn" id="display-btn">
+        <div class="display-btn-inner">
+            <i class="material-icons">airplay</i>
+        </div>
+    </div>
+    <script>
+        const query = (new URL(window.location)).searchParams;
+        const config = <%- config %>;
+        const uuid = <%- uuid %>;
+    </script>
+    <script src="/public/js/main.js"></script>
+</body>
+</html>

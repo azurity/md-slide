@@ -29,12 +29,11 @@ class ContentServer {
                                 content: this.container
                                     .get(req.params.uuid)
                                     .provider.get(),
-                                params: JSON.stringify(req.query),
                                 config: JSON.stringify(
                                     this.container.get(req.params.uuid).provider
                                         .meta.config
                                 ),
-                                uuid: JSON.stringify(req.params.uuid)
+                                uuid: JSON.stringify(req.params.uuid),
                             },
                             MDProvider.env
                         )
@@ -42,6 +41,43 @@ class ContentServer {
                 } else if (req.path == '/index.md') {
                     res.set('Content-Type', 'text/markdown; charset=UTF-8')
                     res.send(this.container.get(req.params.uuid).provider.raw)
+                } else if (req.path == '/offline.json') {
+                    let offline = this.container
+                        .get(req.params.uuid)
+                        .provider.getOffline()
+                    res.app.render(
+                        'index-offline.ejs',
+                        Object.assign(
+                            {
+                                title: this.container.get(req.params.uuid)
+                                    .provider.meta.title,
+                                content: offline.article,
+                                config: JSON.stringify(
+                                    this.container.get(req.params.uuid).provider
+                                        .meta.config
+                                ),
+                                uuid: JSON.stringify(req.params.uuid),
+                            },
+                            MDProvider.offlineEnv
+                        ),
+                        (err, html) => {
+                            if (err) {
+                                console.log(err)
+                                res.sendStatus(500)
+                            } else {
+                                res.json({
+                                    article: html,
+                                    resource: offline.resource,
+                                    meta: Object.assign(
+                                        {
+                                            uuid: req.params.uuid,
+                                        },
+                                        offline.meta
+                                    ),
+                                })
+                            }
+                        }
+                    )
                 } else {
                     this.container.get(req.params.uuid).router(req, res, next)
                 }
@@ -67,8 +103,8 @@ class ContentServer {
                 file.split('.')[0],
                 {
                     router: express.Router(),
-                    provider: new MDProvider(path.resolve(this.basePath, file))
-                }
+                    provider: new MDProvider(path.resolve(this.basePath, file)),
+                },
             ]
         } else {
             let indexPath = path.resolve(this.basePath, file, 'index.md')
@@ -88,8 +124,8 @@ class ContentServer {
                     router: express.static(
                         path.resolve(this.basePath, file, 'public')
                     ),
-                    provider: new MDProvider(indexPath)
-                }
+                    provider: new MDProvider(indexPath),
+                },
             ]
         }
     }

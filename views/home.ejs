@@ -175,11 +175,23 @@
                         ev.currentTarget.parentElement.parentElement.dataset
                             .uuid
                     window.open(`/slide/${slideId}/?mode=speaker`)
+                },
+            }
+
+            function addOnclick(root) {
+                for (let el of root.children) {
+                    if (!!el.id && !!actionList[el.id]) {
+                        el.onclick = actionList[el.id]
+                    }
+                    if(el.children) {
+                        addOnclick(el)
+                    }
                 }
             }
+
             async function refresh() {
                 let res = await fetch('/list', {
-                    cache: 'no-cache'
+                    cache: 'no-cache',
                 })
                 let list = await res.json()
                 let content = document.querySelector('.content')
@@ -191,12 +203,7 @@
                     clone.querySelector('#author').innerText = data.author
                     let slideId = uuid
                     clone.firstElementChild.dataset.uuid = uuid
-                    for (let el of clone.querySelector('.action-btn-list')
-                        .children) {
-                        if (!!el.id && !!actionList[el.id]) {
-                            el.onclick = actionList[el.id]
-                        }
-                    }
+                    addOnclick(clone.querySelector('.action-btn-list'))
                     content.appendChild(clone)
                 })
             }

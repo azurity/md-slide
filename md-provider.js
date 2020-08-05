@@ -4,7 +4,7 @@ const parser = require('./md-parser')
 
 const defaultMeta = {
     title: 'no name slide',
-    author: 'unknown'
+    author: 'unknown',
 }
 
 class Provider {
@@ -41,6 +41,22 @@ class Provider {
                 Object.assign({}, defaultMeta),
                 parser.meta
             )
+            // make offline data:
+            let offlineEnv = {
+                offline: true,
+                offlineResource: [],
+                resourceIndex: 0,
+            }
+            parser.renderReset()
+            let offlineArticle = parser.render(this.raw, offlineEnv)
+            this.offline = {
+                resource: offlineEnv.offlineResource,
+                article: offlineArticle,
+                meta: {
+                    author: this.meta.author,
+                    title: this.meta.title,
+                },
+            }
         } catch (e) {
             console.log(e.toString())
         }
@@ -48,6 +64,10 @@ class Provider {
 
     get() {
         return this.article
+    }
+
+    getOffline() {
+        return this.offline
     }
 }
 
@@ -60,7 +80,18 @@ Provider.env = {
         .join('\n'),
     script: (parser['script-url'] || [])
         .map((url) => `<script src="${url}"></script>`)
-        .join('\n')
+        .join('\n'),
+}
+Provider.offlineEnv = {
+    style: (parser['offline-style-url'] || [])
+        .map(
+            (url) =>
+                `<link rel="stylesheet" type="text/css" media="all" href="${url}">`
+        )
+        .join('\n'),
+    script: (parser['offline-script-url'] || [])
+        .map((url) => `<script src="${url}"></script>`)
+        .join('\n'),
 }
 Provider.pluginFiles = parser.staticPaths
 

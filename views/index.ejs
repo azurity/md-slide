@@ -49,7 +49,7 @@
         </div>
     </div>
     <script>
-        const query = <%- params %>;
+        const query = (new URL(window.location)).searchParams;
         const config = <%- config %>;
         const uuid = <%- uuid %>;
     </script>

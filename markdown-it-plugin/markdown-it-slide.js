@@ -65,6 +65,15 @@ function Slide(md, opt) {
                 ]
                 // background
                 if (background !== null) {
+                    if(state.env.offline) {
+                        let localName = `resource/${state.env.resourceIndex}`
+                        state.env.offlineResource.push([
+                            localName,
+                            background[2],
+                        ])
+                        background[2] = localName
+                        state.env.resourceIndex++
+                    }
                     switch (background[1].toString()) {
                         case 'image':
                             {
@@ -150,7 +159,17 @@ function Slide(md, opt) {
             highlightTheme.attrSet('rel', 'stylesheet')
             highlightTheme.attrSet('type', 'text/css')
             highlightTheme.attrSet('media', 'all')
-            highlightTheme.attrSet('href', md.meta['highlight-theme'])
+            let url = md.meta['highlight-theme']
+            if(state.env.offline) {
+                let localName = `resource/${state.env.resourceIndex}.css`
+                state.env.offlineResource.push([
+                    localName,
+                    url,
+                ])
+                url = localName
+                state.env.resourceIndex++
+            }
+            highlightTheme.attrSet('href', url)
             highlightTheme.block = true
             state.tokens = [highlightTheme, ...state.tokens]
         }

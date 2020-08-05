@@ -2,6 +2,8 @@
 - name: highlight.js
   style-url:
       - 'https://cdn.jsdelivr.net/npm/highlight.js@10/styles/default.min.css'
+  offline-style-url:
+      - '/highlight.js/styles/default.min.css'
 
 # core module, mustn't remove
 - name: slide
@@ -14,6 +16,10 @@
   style-url:
       - '/webslides/css/webslides.css'
   script-url:
+      - '/webslides/js/webslides.js'
+  offline-style-url:
+      - '/webslides/css/webslides.css'
+  offline-script-url:
       - '/webslides/js/webslides.js'
 
 # core module, mustn't remove
@@ -36,6 +42,8 @@
 - name: colors.css
   style-url:
       - 'https://cdn.jsdelivr.net/npm/colors.css@3/css/colors.min.css'
+  offline-style-url:
+      - '/colors.css/css/colors.min.css'
 
 # optional
 - name: easy-font
@@ -49,17 +57,24 @@
   module: 'markdown-it-fontawesome'
   style-url:
       - 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css'
+  offline-style-url:
+      - '/fontawesome-free/css/all.min.css'
 
 # optional
 - name: animate.css
   style-url:
       - 'https://cdn.jsdelivr.net/npm/animate.css@4/animate.compat.css'
+  offline-style-url:
+      - '/animate.css/animate.compat.css'
 
 # optional
 - name: webslides-animation
   static:
       - 'webslides-animation'
   script-url:
+      - '/webslides-animation/webslides-animation.js'
+      - '/webslides-animation/index.js'
+  offline-script-url:
       - '/webslides-animation/webslides-animation.js'
       - '/webslides-animation/index.js'
 
@@ -88,6 +103,8 @@
   module: 'markdown-it-katex'
   style-url:
       - 'https://cdn.jsdelivr.net/npm/katex@0.6/dist/katex.min.css'
+  offline-style-url:
+      - 'katex/katex.min.css'
 
 # optional
 - name: css-doodle
@@ -95,6 +112,8 @@
   module: './markdown-it-plugin/css-doodle'
   script-url:
       - 'https://cdn.jsdelivr.net/npm/css-doodle@0.8/css-doodle.min.js'
+  offline-script-url:
+      - '/css-doodle/css-doodle.min.js'
 
 # optional
 - name: echarts
@@ -102,6 +121,8 @@
   module: './markdown-it-plugin/echarts'
   script-url:
       - 'https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js'
+  offline-script-url:
+      - '/echarts/echarts.min.js'
 
 # optional
 - name: mermaid
@@ -111,6 +132,9 @@
       - 'mermaid'
   script-url:
       - 'https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js'
+      - '/mermaid/index.js'
+  offline-script-url:
+      - '/mermaid/mermaid.min.js'
       - '/mermaid/index.js'
 
 # optional
@@ -124,6 +148,11 @@
       - '/timesheet/compatible.css'
   script-url:
       - '/timesheet/timesheet.min.js'
+  offline-style-url:
+      - '/timesheet/timesheet.min.css'
+      - '/timesheet/compatible.css'
+  offline-script-url:
+      - '/timesheet/timesheet.min.js'
 
 # optional
 - name: smcat
@@ -136,6 +165,8 @@
   module: './markdown-it-plugin/roughViz'
   script-url:
       - 'https://cdn.jsdelivr.net/npm/@azurity/rough-viz@1/dist/roughviz.min.js'
+  offline-script-url:
+      - '/rough-viz/roughviz.min.js'
 
 # optional
 - name: asciinema
@@ -148,3 +179,12 @@
   script-url:
       - 'https://cdn.jsdelivr.net/npm/asciinema-player@2/resources/public/js/asciinema-player.min.js'
       - '/asciinema-player/loader.js'
+  offline-style-url:
+      - '/asciinema-player/asciinema-player.min.css'
+  offline-script-url:
+      - '/asciinema-player/asciinema-player.min.js'
+      - '/asciinema-player/loader.js'
+
+# optional
+- name: offline
+  module: './markdown-it-plugin/markdown-it-offline'

@@ -1,0 +1,14 @@
+.offline-content {
+    display: flex;
+    overflow: hidden;
+    width: 48px;
+    transition: 0.25s width ease-out;
+}
+
+.offline-content:hover {
+    width: calc(48px * 2);
+}
+
+.offline-content:hover > #offline {
+    display: none;
+}

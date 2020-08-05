@@ -4,7 +4,7 @@ function init() {
     window.onbeforeunload = () => {
         window.slideWorker.port.postMessage(['close'])
     }
-    if (query.mode == 'speaker') {
+    if (query.get('mode') == 'speaker') {
         window.ws.el.className = 'with-note'
         window.ws.el.addEventListener('ws:slide-change', (event) => {
             window.slideWorker.port.postMessage([
