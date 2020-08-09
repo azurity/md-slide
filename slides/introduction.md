@@ -58,6 +58,10 @@ highlight-theme: 'https://cdn.jsdelivr.net/npm/highlight.js@10/styles/solarized-
 - [**Timesheet.js**](https://sbstjn.github.io/timesheet.js/)
 - [**state-machine-cat**](https://state-machine-cat.js.org/)
 - [**roughViz**](https://github.com/jwilber/roughViz)
+- [**asciinema-player**](https://www.npmjs.com/package/asciinema-player)
+- 
+- 
+- 
 {.flexblock .metrics}
 
 **and more if you think I should support!**
@@ -170,7 +174,7 @@ your note here.
 your note here.
 :::
 
-about speaker-mode, see so: [speaker mode](#slide=31)
+about speaker-mode, see so: [speaker mode](#slide=32)
 
 <slide/>
 
@@ -541,6 +545,25 @@ testing      => final        : test ok;
 
 <slide/>
 
+**asciinema-player example**
+
+::::grid
+:::column
+```render(asciinema)
+https://asciinema.org/a/28307.cast
+```
+:::
+:::column
+````markdown
+```render(asciinema)
+https://asciinema.org/a/28307.cast
+```
+````
+:::
+::::
+
+<slide/>
+
 # speaker mode
 
 Speaker mode can be used easily by `?mode=speaker`
@@ -574,6 +597,16 @@ folder mode see so: [folder example](/slide/folder-example/)
 - you can upload slide file(now single file mode only), if your name(provide by OAuth2) is same as the 'author' meta in your slide.
 - for example, my github is `azurity` and the 'author' meta in this slide is `@azurity`.
 - you can remove slide which belong to yourself.(condition is same as upload)
+
+<slide/>
+
+# generate offline file
+
+- you can use the button in list page to generate one slide to an one file offline version.
+- generate offline file should choose the right OS that you want to used in.
+- offline file don't need network.
+- offline file is read-only up to now.
+- offline file has no other dependencies except browser.
 
 <slide/>
 
