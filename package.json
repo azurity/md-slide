@@ -33,7 +33,7 @@
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
     "md-it-meta": "0.0.2",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "state-machine-cat": "^5.3.8",
     "xml-js": "^1.6.11"
   }
