@@ -71,3 +71,7 @@ div.mermaid {
 div.asciinema {
     display: inline-block;
 }
+
+div.artPlayer {
+    display: inline-block;
+}

@@ -25,16 +25,34 @@ function init() {
                     window.ws.goToSlide(args[1])
                 }
             },
-            play: (id) => {
-                let player = document.getElementById(id)
+            asciinemaPlay: (id) => {
+                let player = document.getElementById(id[0])
                 if (player?.play) {
                     player.play()
                 }
             },
-            pause: (id) => {
-                let player = document.getElementById(id)
+            asciinemaPause: (id) => {
+                let player = document.getElementById(id[0])
                 if (player?.pause) {
                     player.pause()
+                }
+            },
+            artplayerPlay: (id) => {
+                if(window.artPlayerMap !== undefined)
+                {
+                    let player = window.artPlayerMap.get(id[0])
+                    if(player) {
+                        player.play = true
+                    }
+                }
+            },
+            artplayerPause: (id) => {
+                if(window.artPlayerMap !== undefined)
+                {
+                    let player = window.artPlayerMap.get(id[0])
+                    if(player) {
+                        player.pause = true
+                    }
                 }
             },
         }

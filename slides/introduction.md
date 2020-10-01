@@ -59,9 +59,9 @@ highlight-theme: 'https://cdn.jsdelivr.net/npm/highlight.js@10/styles/solarized-
 - [**state-machine-cat**](https://state-machine-cat.js.org/)
 - [**roughViz**](https://github.com/jwilber/roughViz)
 - [**asciinema-player**](https://www.npmjs.com/package/asciinema-player)
-- 
-- 
-- 
+- [**中国高校校徽**](http://xiaohui.lovefc.cn/)
+- [**abcjs**](https://paulrosen.github.io/abcjs/)
+- [**artPlayer**](https://artplayer.org/)
 {.flexblock .metrics}
 
 **and more if you think I should support!**
@@ -174,7 +174,7 @@ your note here.
 your note here.
 :::
 
-about speaker-mode, see so: [speaker mode](#slide=32)
+about speaker-mode, see so: [speaker mode](#slide=35)
 
 <slide/>
 
@@ -557,6 +557,65 @@ https://asciinema.org/a/28307.cast
 ````markdown
 ```render(asciinema)
 https://asciinema.org/a/28307.cast
+```
+````
+:::
+::::
+
+<slide/>
+
+**中国高校校徽 example**
+
+:xiaohui-njust:{style="font-size:160px;color:rgb(153,37,120);"}
+
+```markdown
+:xiaohui-njust:{style="font-size:160px;color:rgb(153,37,120);"}
+```
+
+<slide/>
+
+**abcjs example**
+
+```render(abcjs)
+X:1
+T:使命
+M:4/4
+L:1/4
+K:F
+((3G,/C/E/)|A2 G>D|E D>E A, B,>A,|G, G/>F/ E/ D E/|C C/>C/ C
+```
+
+````markdown
+```render(abcjs)
+X:1
+T:使命
+M:4/4
+L:1/4
+K:F
+((3G,/C/E/)|A2 G>D|E D>E A, B,>A,|G, G/>F/ E/ D E/|C C/>C/ C
+```
+````
+
+<slide/>
+
+::::grid
+:::column
+```render(artPlayer)
+{
+    "url": "https://artplayer.org/assets/sample/video.mp4",
+    "width": 400,
+    "height": 300
+}
+```
+:::
+:::column
+````markdown
+```render(artPlayer)
+{
+    "url": "https://artplayer.org/assets/sample/video.mp4",
+    "width": 400,
+    "height": 300
+}
 ```
 ````
 :::

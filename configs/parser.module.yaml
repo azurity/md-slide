@@ -61,6 +61,14 @@
       - '/fontawesome-free/css/all.min.css'
 
 # optional
+- name: xiaohui
+  module: './markdown-it-plugin/markdown-it-xiaohui'
+  style-url:
+      - 'https://cdn.jsdelivr.net/gh/lovefc/china_school_badge/css/fcicon.min.css'
+  offline-style-url:
+      - '/china_school_badge/fcicon.min.css'
+
+# optional
 - name: animate.css
   style-url:
       - 'https://cdn.jsdelivr.net/npm/animate.css@4/animate.compat.css'
@@ -184,6 +192,32 @@
   offline-script-url:
       - '/asciinema-player/asciinema-player.min.js'
       - '/asciinema-player/loader.js'
+
+# optional
+- name: abcjs
+  type: render
+  module: './markdown-it-plugin/abcjs'
+  style-url:
+      - 'https://cdn.jsdelivr.net/gh/paulrosen/abcjs/abcjs-audio.css'
+  script-url:
+      - 'https://cdn.jsdelivr.net/gh/paulrosen/abcjs/bin/abcjs_basic_5.10.3-min.js'
+  offline-style-url:
+      - '/abcjs/abcjs-audio.css'
+  offline-script-url:
+      - '/abcjs/bin/abcjs_basic_5.10.3-min.js'
+
+# optional
+- name: artPlayer
+  type: render
+  module: './markdown-it-plugin/artplayer.js'
+  static:
+      - 'artplayer'
+  script-url:
+      - 'https://cdn.jsdelivr.net/npm/artplayer@3/dist/artplayer.min.js'
+      - '/artplayer/index.js'
+  offline-script-url:
+      - '/artplayer/artplayer.min.js'
+      - '/artplayer/index.js'
 
 # optional
 - name: offline
