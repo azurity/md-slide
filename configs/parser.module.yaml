@@ -112,7 +112,7 @@
   style-url:
       - 'https://cdn.jsdelivr.net/npm/katex@0.6/dist/katex.min.css'
   offline-style-url:
-      - 'katex/katex.min.css'
+      - '/katex/katex.min.css'
 
 # optional
 - name: css-doodle
