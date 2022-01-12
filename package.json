@@ -20,7 +20,7 @@
     "grant-express": "^4.6.4",
     "highlight.js": "^9.16.2",
     "js-yaml": "^3.13.1",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^12.3.2",
     "markdown-it-attrs": "^3.0.1",
     "markdown-it-bracketed-spans": "^1.0.1",
     "markdown-it-container": "^2.0.0",
